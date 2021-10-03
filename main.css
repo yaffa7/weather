@@ -1,0 +1,96 @@
+* {
+    margin:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --border-style: 2px solid rgba(255,255,255,.4);;
+}
+body {
+    padding: 20px;
+}
+
+.location {
+    font-family: 'Nunito', sans-serif;
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.main-panel {
+    margin: auto;
+    max-width: 430px;
+    background-color: #427bff;
+    color:white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.main-display {
+    border-bottom: var(--border-style);
+    padding-top: 25px;
+    padding-bottom: 30px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.main-weather {
+    margin-top: 10px;
+}
+
+.main-weather-text {
+    margin-top: 15px;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.current-day-text {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 500;;
+    color: rgb(195, 195, 195);
+}
+
+.current-temp-text {
+    font-size: 92px;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.detail-row {
+    border-bottom: var(--border-style);
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.detail-row .detail-left {
+    display: flex;
+    width:50%;
+    padding: 15px;
+    border-right: var(--border-style);
+    text-align: left;
+    justify-content: space-around;
+}
+
+.detail-row .detail-right {
+    display: flex;
+    width:50%;
+    padding: 10px;
+    text-align: left;
+    justify-content: space-around;
+}
+.detail-icon {
+    margin: auto 0px;
+}
+
+.top-title {
+    /* font-size: 10px; */
+    color: rgb(195, 195, 195);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.detail-row:last-child {
+    border:0px solid white;
+}

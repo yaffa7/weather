@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <script src="weather.js"></script>
+    <link href="fontawsome/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="location" id="location"><strong>Bandung</strong>, Indonesia</div>
+    <div class="main-panel">
+        <div class="main-display">
+            <div class="main-weather">
+                <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="" width="100px" height="100px">
+                <!-- <i class="fa fa-cloud-sun-rain fa-5x"></i> -->
+            </div>
+            <div class="main-weather-text" id="condition-text">Heavy Rain</div>
+            <div class="current-day-text" id="current-date">Sunday, 02 Oct</div>
+            <div class="current-temp-text" id="current-temp">24°</div>
+        </div>
+        <div class="detail-display">
+            <div class="detail-row">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <i class="fa fa-wind fa-2x"></i>
+                    </div>
+                    <div class="detail-info">
+                        <div class="top-title">Wind</div>
+                        <div class="bottom-subtitle">19.2km/j</div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="detail-icon">
+                        <i class="fas fa-temperature-high fa-2x"></i>
+                    </div>
+                    <div class="detail-info">
+                        <div class="top-title">Feels like</div>
+                        <div class="bottom-subtitle">24°</div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <i class="fas fa-sun fa-2x"></i>
+                    </div>
+                    <div class="detail-info">
+                        <div class="top-title">Index UV</div>
+                        <div class="bottom-subtitle">2</div>
+
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="detail-icon">
+                        <i class="fas fa-signal fa-2x"></i>
+                    </div>
+                    <div class="detail-info">
+                        <div class="top-title">Pressure</div>
+                        <div class="bottom-subtitle">1014 mbar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
