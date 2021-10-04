@@ -1,17 +1,23 @@
 
 window.onload = function () {
-    console.log(new Date().getMonth())
+    document.querySelector('.main-panel').classList.add('hidden')
     let hours = new Date().getHours()
     console.log('Hours:', hours)
+    let greeting = ''
     if (6 < hours && hours < 12) {
-        console.log('Good Morning')
+        greeting = 'Good Morning'
+        // document.querySelector('body').classList.add('morning')
     }
     if (12 < hours && hours < 18) {
-        console.log('Good Afternoon')
+        greeting = 'Good Afternoon'
+        document.querySelector('body').classList.add('afternoon')
     }
     if (18 < hours && hours < 24) {
-        console.log('Good Evening')
+        greeting = 'Good Evening'
     }
+
+    // Set Greeting
+    document.querySelector('#greeting').textContent = greeting
 
     const form = document.querySelector('#form')
     form.addEventListener('submit', (event) => {
@@ -44,6 +50,10 @@ window.onload = function () {
 
             // Pressure
             document.querySelector('#pressure').textContent = data.main.pressure + '°'
+
+
+            // Show Panel
+            document.querySelector('.main-panel').classList.remove('hidden')
         })
     })
 }
