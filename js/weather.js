@@ -12,10 +12,19 @@ window.onload = function () {
     if (18 < hours && hours < 24) {
         console.log('Good Evening')
     }
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=San Diego,US&appid=4b82b3b40e9f7a693087eab5ee7b5044&units=imperial')
+
+    const form = document.querySelector('#form')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let search = document.querySelector('#input').value
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search},US&appid=4b82b3b40e9f7a693087eab5ee7b5044&units=imperial`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
+
+            // Set Image
+            let imageHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="" width="100px" height="100px">`
+            document.querySelector('#image-container').innerHTML = imageHTML
 
             // Set location
             let locationInnerHTML = `<strong id="location">${data.name}</strong>, ${data.sys.country}`
@@ -36,5 +45,5 @@ window.onload = function () {
             // Pressure
             document.querySelector('#pressure').textContent = data.main.pressure + '°'
         })
-
+    })
 }
