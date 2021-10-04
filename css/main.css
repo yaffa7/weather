@@ -6,21 +6,24 @@
 :root {
     --border-style: 2px solid rgba(255,255,255,.4);;
 }
+
 body {
     padding: 20px;
-    height: 100vh;
+    height: 120vh;
 }
 
 body.morning {
-    background: rgb(3,255,0);
-    background: radial-gradient(circle, rgba(3,255,0,1) 0%, rgba(0,255,186,1) 100%);
+    background: #4954B6;
+    background: -webkit-linear-gradient(top left, #4954B6, #B5CD3C);
+    background: -moz-linear-gradient(top left, #4954B6, #B5CD3C);
+    background: linear-gradient(to bottom right, #4954B6, #B5CD3C);
 }
 
 body.afternoon {
-    background: #D76516;
-    background: -webkit-linear-gradient(top left, #D76516, #4C7660);
-    background: -moz-linear-gradient(top left, #D76516, #4C7660);
-    background: linear-gradient(to bottom right, #D76516, #4C7660);
+    background: #082BAE;
+    background: -webkit-linear-gradient(top left, #082BAE, #3AA1D6);
+    background: -moz-linear-gradient(top left, #082BAE, #3AA1D6);
+    background: linear-gradient(to bottom right, #082BAE, #3AA1D6);
 }
 
 body.evening {
@@ -44,7 +47,10 @@ input {
     border-radius: 35px;
     font-family: 'Nunito', sans-serif;
     font-size: 24px;
-    padding: 10px
+    font-weight: 600;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
 }
 
 button {
@@ -61,12 +67,16 @@ button {
     margin-top: 50px;
     display: flex;
     justify-content: center;
-    transition: all 1s ease-in-out;
+    transition: all .25s ease-in;
+    top: 200px
 }
 
 .search-container.searched {
-    left: 0;
-    clear: right;
+    clear: left;
+    clear: right;   
+    left: -970px;
+    top: 0px;
+    scale: .7;
 }
 
 
@@ -75,7 +85,7 @@ h1.greeting {
     font-size: 72px;
     margin-top: 20px;
     text-align: center;
-    color: white;
+    color: rgb(207, 207, 207);
 }
 
 .location {

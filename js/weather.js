@@ -2,11 +2,10 @@
 window.onload = function () {
     document.querySelector('.main-panel').classList.add('hidden')
     let hours = new Date().getHours()
-    console.log('Hours:', hours)
     let greeting = ''
     if (6 < hours && hours < 12) {
         greeting = 'Good Morning'
-        // document.querySelector('body').classList.add('morning')
+        document.querySelector('body').classList.add('morning')
     }
     if (12 < hours && hours < 18) {
         greeting = 'Good Afternoon'
@@ -14,10 +13,19 @@ window.onload = function () {
     }
     if (18 < hours && hours < 24) {
         greeting = 'Good Evening'
+        document.querySelector('body').classList.add('evening')
     }
 
     // Set Greeting
-    document.querySelector('#greeting').textContent = greeting
+    document.querySelector('#greeting').textContent = 'Good Afternoon'//greeting
+
+
+    // Set Date 
+    var options = { weekday: 'long', day: 'numeric' , month: 'long'};
+    var today  = new Date();
+
+    let dateString = today.toLocaleDateString("en-US", options)
+    document.querySelector('#current-date').textContent = dateString
 
     const form = document.querySelector('#form')
     form.addEventListener('submit', (event) => {
