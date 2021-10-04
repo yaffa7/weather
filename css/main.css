@@ -31,13 +31,42 @@ body.evening {
 }
 
 form {
+    display: inline;
     font-family: 'Nunito', sans-serif;
     background-color: #427bff;
     color:white;
+    border-radius: 42px;
+    height: auto;
+    padding: 16px 19px;
+}
+input {
+    border: 0px;
     border-radius: 35px;
-    /* text-align: center; */
-    height: 30px;
-    padding: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    padding: 10px
+}
+
+button {
+    background-color: transparent;
+    border: 0px;
+    color: white;
+    margin: auto auto;
+}
+
+.search-container {
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    transition: all 1s ease-in-out;
+}
+
+.search-container.searched {
+    left: 0;
+    clear: right;
 }
 
 

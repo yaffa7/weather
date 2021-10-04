@@ -54,6 +54,9 @@ window.onload = function () {
 
             // Show Panel
             document.querySelector('.main-panel').classList.remove('hidden')
+
+            // Move Search
+            document.querySelector('.search-container').classList.add('searched')
         })
     })
 }
