@@ -3,7 +3,7 @@ window.onload = function () {
     document.querySelector('.main-panel').classList.add('hidden')
     let hours = new Date().getHours()
     let greeting = ''
-    if (6 < hours && hours < 12) {
+    if (1 <= hours && hours < 12) {
         greeting = 'Good Morning'
         document.querySelector('body').classList.add('morning')
     }
@@ -11,7 +11,7 @@ window.onload = function () {
         greeting = 'Good Afternoon'
         document.querySelector('body').classList.add('afternoon')
     }
-    if (18 <= hours && hours < 24) {
+    if (18 <= hours && hours <= 24) {
         greeting = 'Good Evening'
         document.querySelector('body').classList.add('evening')
     }
