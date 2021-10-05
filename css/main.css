@@ -87,6 +87,7 @@ h1.greeting {
     margin-top: 20px;
     text-align: center;
     color: rgb(207, 207, 207);
+    line-height: 1em;
 }
 
 .location {
