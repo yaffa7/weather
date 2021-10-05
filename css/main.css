@@ -100,7 +100,7 @@ h1.greeting {
 .main-panel {
     margin: auto;
     max-width: 430px;
-    background-color: #427bff;
+    /* background-color: #427bff; */
     color:white;
     border-radius: 35px;
     text-align: center;
