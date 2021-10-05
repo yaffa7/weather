@@ -9,7 +9,7 @@ window.onload = function () {
     }
     if (12 < hours && hours < 18) {
         greeting = 'Good Afternoon'
-        document.querySelector('body').classList.add('morning')
+        document.querySelector('body').classList.add('afternoon')
     }
     if (18 < hours && hours < 24) {
         greeting = 'Good Evening'
@@ -17,7 +17,7 @@ window.onload = function () {
     }
 
     // Set Greeting
-    document.querySelector('#greeting').textContent = 'Good Afternoon'//greeting
+    document.querySelector('#greeting').textContent = greeting//greeting
 
 
     // Set Date 
