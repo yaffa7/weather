@@ -36,7 +36,8 @@ body.evening {
 form {
     display: inline;
     font-family: 'Nunito', sans-serif;
-    background-color: #427bff;
+    /* background-color: #427bff; */
+    border: var(--border-style);
     color:white;
     border-radius: 42px;
     height: auto;
@@ -103,7 +104,8 @@ h1.greeting {
     color:white;
     border-radius: 35px;
     text-align: center;
-    /* border: var(--border-style) */
+    border: var(--border-style);
+    backdrop-filter: blur(20px);
 }
 
 .main-panel.hidden {
@@ -170,7 +172,6 @@ h1.greeting {
 }
 
 .top-title {
-    /* font-size: 10px; */
     color: rgb(195, 195, 195);
     text-transform: uppercase;
     margin-bottom: 5px;

@@ -59,6 +59,14 @@ window.onload = function () {
             // Pressure
             document.querySelector('#pressure').textContent = data.main.pressure + '°'
 
+            // Max Temp
+            document.querySelector('#high').textContent = data.main.temp_max + '°'
+
+            // Min Temp
+            document.querySelector('#low').textContent = data.main.temp_min + '°'
+
+            // Humidity
+            document.querySelector('#humidity').textContent = data.main.humidity + '%'
 
             // Show Panel
             document.querySelector('.main-panel').classList.remove('hidden')
