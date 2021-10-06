@@ -1,6 +1,12 @@
 
 window.onload = function () {
     document.querySelector('.main-panel').classList.add('hidden')
+
+    SetBackground()
+    AddSearchListener()
+}
+
+function SetBackground() {
     let hours = new Date().getHours()
     let greeting = ''
     if (1 <= hours && hours < 12) {
@@ -19,21 +25,22 @@ window.onload = function () {
     // Set Greeting
     document.querySelector('#greeting').textContent = greeting//greeting
 
-
     // Set Date 
     var options = { weekday: 'long', day: 'numeric' , month: 'long'};
     var today  = new Date();
 
     let dateString = today.toLocaleDateString("en-US", options)
     document.querySelector('#current-date').textContent = dateString
+}
 
+function AddSearchListener() {
     const form = document.querySelector('#form')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
 
         let input = document.querySelector('#input')
         input.blur()
-        
+
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value},US&appid=4b82b3b40e9f7a693087eab5ee7b5044&units=imperial`)
         .then(response => response.json())
         .then(data => {
