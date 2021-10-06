@@ -30,8 +30,11 @@ window.onload = function () {
     const form = document.querySelector('#form')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
-        let search = document.querySelector('#input').value
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search},US&appid=4b82b3b40e9f7a693087eab5ee7b5044&units=imperial`)
+
+        let input = document.querySelector('#input')
+        input.blur()
+        
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value},US&appid=4b82b3b40e9f7a693087eab5ee7b5044&units=imperial`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
