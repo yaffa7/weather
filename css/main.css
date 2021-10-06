@@ -4,7 +4,8 @@
 }
 
 :root {
-    --border-style: 2px solid rgba(255,255,255,.4);;
+    --border-style: 2px solid rgba(255,255,255,.4);
+    --main-font: 'Nunito', sans-serif;
 }
 
 body {
@@ -35,7 +36,7 @@ body.evening {
 
 form {
     display: inline;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
     /* background-color: #427bff; */
     border: var(--border-style);
     color:white;
@@ -46,7 +47,7 @@ form {
 input {
     border: 0px;
     border-radius: 35px;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
     font-size: 24px;
     font-weight: 600;
     padding: 10px;
@@ -82,7 +83,7 @@ button {
 
 
 h1.greeting {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
     font-size: 72px;
     margin-top: 20px;
     text-align: center;
@@ -91,7 +92,7 @@ h1.greeting {
 }
 
 .location {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
     font-size: 35px;
     margin-bottom: 20px;
     text-align: center;
@@ -106,7 +107,6 @@ h1.greeting {
     border-radius: 35px;
     text-align: center;
     border: var(--border-style);
-    backdrop-filter: blur(20px);
 }
 
 .main-panel.hidden {
@@ -117,7 +117,7 @@ h1.greeting {
     border-bottom: var(--border-style);
     padding-top: 25px;
     padding-bottom: 30px;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
 }
 
 .main-weather {
@@ -147,27 +147,23 @@ h1.greeting {
 .detail-row {
     border-bottom: var(--border-style);
     display: flex;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
     font-weight: 600;
     font-size: 18px;
 }
 
-.detail-row .detail-left {
+.detail-row .detail{
     display: flex;
     width:50%;
     padding: 15px;
-    border-right: var(--border-style);
     text-align: right;
     justify-content: space-around;
 }
 
-.detail-row .detail-right {
-    display: flex;
-    width:50%;
-    padding: 15px;
-    text-align: left;
-    justify-content: space-around;
+.detail-row .detail.left {
+    border-right: var(--border-style);
 }
+
 .detail-icon {
     margin: auto 0px;
 }
