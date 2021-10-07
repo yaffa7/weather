@@ -48,7 +48,7 @@ function AddSearchListener() {
             console.log(data)
 
             // Set Image
-            let imageHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="" width="100px" height="100px">`
+            let imageHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="" width="100px" height="100px">`
             document.querySelector('#image-container').innerHTML = imageHTML
 
             // Set location
