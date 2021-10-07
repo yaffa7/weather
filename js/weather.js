@@ -1,5 +1,6 @@
 
 window.onload = function () {
+    // Hide panel until user has searched
     document.querySelector('.main-panel').classList.add('hidden')
 
     SetBackground()
@@ -29,7 +30,7 @@ function SetBackground() {
     var options = { weekday: 'long', day: 'numeric' , month: 'long'};
     var today  = new Date();
 
-    let dateString = today.toLocaleDateString("en-US", options)
+    let dateString = today.toLocaleDateString('en-US', options)
     document.querySelector('#current-date').textContent = dateString
 }
 
