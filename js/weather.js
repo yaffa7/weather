@@ -36,17 +36,26 @@ function SetBackground() {
 
 function AddSearchListener() {
     const form = document.querySelector('#form')
+    
+    let input = document.querySelector('#input')
+    input.addEventListener('focus', (event) => {
+        document.querySelector('#error').classList.add('hidden')
+    })
+
     form.addEventListener('submit', (event) => {
         event.preventDefault()
 
-        let input = document.querySelector('#input')
         input.blur()
 
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value},US&appid=4b82b3b40e9f7a693087eab5ee7b5044&units=imperial`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
 
+            if(data.cod == 404) {
+                console.log('Error detected')
+                document.querySelector('#error').classList.remove('hidden')
+                document.querySelector('#error').textContent = data.message
+            }
             // Set Image
             let imageHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="" width="100px" height="100px">`
             document.querySelector('#image-container').innerHTML = imageHTML

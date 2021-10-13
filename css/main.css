@@ -37,7 +37,6 @@ body.evening {
 form {
     display: inline;
     font-family: var(--main-font);
-    /* background-color: #427bff; */
     border: var(--border-style);
     color:white;
     border-radius: 42px;
@@ -68,9 +67,9 @@ button {
     position: absolute;
     margin-top: 50px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     transition: all .25s ease-in;
-    top: 200px
 }
 
 .search-container.searched {
@@ -81,6 +80,18 @@ button {
     scale: .7;
 }
 
+div.error-message {
+    margin-top: 20px;
+    color: red;
+    font-size: 25px;
+    text-transform: capitalize;
+    font-family: var(--main-font);
+    font-weight: 700;
+}
+
+div.error-message.hidden {
+    visibility: hidden;
+}
 
 h1.greeting {
     font-family: var(--main-font);
@@ -102,7 +113,6 @@ h1.greeting {
 .main-panel {
     margin: auto;
     max-width: 430px;
-    /* background-color: #427bff; */
     color:white;
     border-radius: 35px;
     text-align: center;
