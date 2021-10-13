@@ -35,7 +35,7 @@ body.evening {
 }
 
 form {
-    display: inline;
+    display: flex;
     font-family: var(--main-font);
     border: var(--border-style);
     color:white;

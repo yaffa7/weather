@@ -3,4 +3,7 @@ and (orientation: portrait) {
     input {
         font-size: 20px;
     }
+    h1.greeting {
+        font-size: 3rem;
+    }
 }
