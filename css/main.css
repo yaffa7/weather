@@ -82,7 +82,7 @@ button {
 
 div.error-message {
     margin-top: 20px;
-    color: red;
+    color: rgb(207, 207, 207);
     font-size: 25px;
     text-transform: capitalize;
     font-family: var(--main-font);
