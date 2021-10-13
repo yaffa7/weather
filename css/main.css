@@ -10,7 +10,7 @@
 
 body {
     padding: 20px;
-    height: 120vh;
+    min-height: 100vh;
 }
 
 body.morning {
@@ -187,3 +187,4 @@ h1.greeting {
 .detail-row:last-child {
     border:0px solid white;
 }
+

@@ -93,6 +93,8 @@ function AddSearchListener() {
 
             // Move Search
             document.querySelector('.search-container').classList.add('searched')
+
+            SetBackground()
         })
     })
 }
