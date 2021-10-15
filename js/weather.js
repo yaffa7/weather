@@ -42,6 +42,12 @@ function AddSearchListener() {
         document.querySelector('#error').classList.add('hidden')
     })
 
+    let searchAgain = document.querySelector('#search-again')
+    searchAgain.classList.add('hidden')
+    searchAgain.addEventListener('click', event => {
+        location.reload()
+    })
+
     form.addEventListener('submit', (event) => {
         event.preventDefault()
 
@@ -93,6 +99,9 @@ function AddSearchListener() {
 
             // Move Search
             document.querySelector('.search-container').classList.add('searched')
+
+            // Show Search Again button
+            searchAgain.classList.remove('hidden')
         })
     })
 }

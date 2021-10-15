@@ -9,4 +9,7 @@ and (orientation: portrait) {
     h1.greeting {
         font-size: 3rem;
     }
+    button.search-again { 
+        visibility: visible;
+    }
 }
