@@ -49,14 +49,16 @@ function AddSearchListener() {
     })
 
     form.addEventListener('submit', (event) => {
+
+        const appID = '4b82b3b40e9f7a693087eab5ee7b5044'
         event.preventDefault()
-
         input.blur()
-
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value},US&appid=4b82b3b40e9f7a693087eab5ee7b5044&units=imperial`)
+        
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value},US&appid=${appID}&units=imperial`)
         .then(response => response.json())
         .then(data => {
-
+            
+            console.log(data)
             if(data.cod == 404) {
                 console.log('Error detected')
                 document.querySelector('#error').classList.remove('hidden')
@@ -101,7 +103,7 @@ function AddSearchListener() {
             document.querySelector('.search-container').classList.add('searched')
 
             // Show Search Again button
-            searchAgain.classList.remove('hidden')
+            searchAgain.classList.remove('hidden')  
         })
     })
 }

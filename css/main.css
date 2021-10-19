@@ -81,6 +81,7 @@ button {
 }
 
 button.search-again {
+    cursor: pointer;
     visibility: hidden;
     margin-bottom: 20px;
     color: rgb(207, 207, 207);
