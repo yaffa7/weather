@@ -119,7 +119,7 @@ function SetUIWithData(data, location) {
         let parsedDate = to12Hour(date, true)
         return `
                 <div class="high">${Math.floor(data.temp)}°</div>
-                <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="small weather icon" width="40px">
+                <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="40px">
                 <div class="low">${parsedDate}</div>
         `
     }
