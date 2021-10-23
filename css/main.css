@@ -78,7 +78,7 @@ button {
 }
 
 div.error-message {
-    margin-top: 20px;
+    margin: 20px 0px;
     color: rgb(207, 207, 207);
     font-size: 25px;
     text-transform: capitalize;
@@ -94,7 +94,7 @@ h1.greeting {
     font-family: var(--main-font);
     font-size: 72px;
     margin-top: 20px;
-    color: rgb(207, 207, 207);
+    color: white;
     line-height: 1em;
 }
 
@@ -102,7 +102,7 @@ h1.greeting {
     font-family: var(--main-font);
     font-size: 35px;
     margin-bottom: 20px;
-    color: white;
+    color: rgb(207, 207, 207);
 }
 
 .main-panel {

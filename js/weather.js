@@ -71,11 +71,6 @@ function SetBackground(date) {
 
 function SetUIWithData(data, location) {
     console.log(data, data.current)
-    if (data.current.cod == 404) {
-        console.log('Error detected')
-        document.querySelector('#error').classList.remove('hidden')
-        document.querySelector('#error').textContent = data.current.message
-    }
     // Set Image
     let imageHTML = `<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png" alt="weather icon">`
     document.querySelector('#image-container').innerHTML = imageHTML
@@ -152,6 +147,9 @@ function AddSearchListener() {
         fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${input.value}&limit=1&appid=${APPID}&units=imperial`)
             .then(response => response.json())
             .then(data => WeatherSearch(data[0].lat, data[0].lon, input.value))
+        .catch(e => { 
+            showErrorMessage('City Not Found')
+        })
     })
 }
 
@@ -184,4 +182,9 @@ function LocationFromCoords(lat, lon) {
     return fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${APPID}&units=imperial`)
         .then(response => response.json())
         .then(data => data[0].name)
+}
+
+function showErrorMessage(error) {
+        document.querySelector('#error').classList.remove('hidden')
+        document.querySelector('#error').textContent = error
 }
