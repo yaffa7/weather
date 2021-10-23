@@ -1,5 +1,7 @@
 // Line plots
 // https://plotly.com/javascript/line-charts/
+// https://www.chartjs.org/docs/latest/samples/line/line.html
+
 const APPID = '4b82b3b40e9f7a693087eab5ee7b5044'
 
 
