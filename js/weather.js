@@ -181,7 +181,7 @@ function to12Hour(date, onlyHour = false) {
 }
 
 function LocationFromCoords(lat, lon) {
-    return fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${APPID}&units=imperial`)
+    return fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${APPID}&units=imperial`)
         .then(response => response.json())
         .then(data => data[0].name)
 }
