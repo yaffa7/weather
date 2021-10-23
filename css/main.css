@@ -12,7 +12,8 @@ body {
     padding: 20px;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -35,6 +36,12 @@ body.evening {
     background: -webkit-linear-gradient(top left, #5843B8, #0A0917);
     background: -moz-linear-gradient(top left, #5843B8, #0A0917);
     background: linear-gradient(to bottom right, #5843B8, #0A0917);
+}
+
+
+.greeting-container {
+    margin: auto;
+    text-align: center;
 }
 
 form {
@@ -64,38 +71,10 @@ button {
 }
 
 .search-container {
-    position: absolute;
-    margin-top: 115px;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all .25s ease-in;
-}
-
-.search-container.searched {
-    /* clear: left;
-    clear: right;   
-    left: -14px; */
-    top: 0px;
-    scale: .7;
-}
-
-button.search-again {
-    cursor: pointer;
-    visibility: hidden;
-    margin-bottom: 20px;
-    color: rgb(207, 207, 207);
-    font-size: 25px;
-    text-transform: capitalize;
-    font-family: var(--main-font);
-    font-weight: 700;
-    border-radius: 20px;
-    border: var(--border-style);
-    padding: 10px;
-}
-
-button.search-again.hidden {
-    visibility: hidden !important;
 }
 
 div.error-message {
@@ -176,7 +155,7 @@ h1.greeting {
 }
 
 .hour {
-    background: rgba(195, 195, 195,.3);
+    background: rgba(195, 195, 195,.1);
     border-radius: 10px;
     display: flex;
     flex-direction: column;

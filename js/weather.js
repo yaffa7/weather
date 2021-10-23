@@ -1,3 +1,5 @@
+// Line plots
+// https://plotly.com/javascript/line-charts/
 const APPID = '4b82b3b40e9f7a693087eab5ee7b5044'
 
 
@@ -33,11 +35,15 @@ function WeatherSearch(lat, lon) {
                 .then(response => response.json())
                 .then(data => { SetUIWithData(data, location) })
         })
+        .catch(e => console.log(e))
     // stop spinner
 }
 
-function SetBackground() {
-    let hours = new Date().getHours()
+function SetBackground(date) {
+    let hours
+    if (!date) {
+        hours = new Date().getHours()
+    }
     let greeting = ''
     if (1 <= hours && hours < 12) {
         greeting = 'Good Morning'
@@ -107,13 +113,6 @@ function SetUIWithData(data, location) {
     // Show Panel
     document.querySelector('.main-panel').classList.remove('hidden')
 
-    // Move Search
-    document.querySelector('.search-container').classList.add('searched')
-
-    // Show Search Again button
-    document.querySelector('#search-again').classList.remove('hidden')
-
-
     // Create hourly weather
     const hourComponent = (data) => {
         let date = new Date(data.dt * 1000)
@@ -127,7 +126,7 @@ function SetUIWithData(data, location) {
 
     // Remove previous elements
     document.querySelector('#hourly').innerHTML = ''
-    
+
     for (let i = 0; i < 5; i++) {
         let elem = document.createElement('div')
         elem.id = 'hour'
@@ -144,12 +143,6 @@ function AddSearchListener() {
     let input = document.querySelector('#input')
     input.addEventListener('focus', (event) => {
         document.querySelector('#error').classList.add('hidden')
-    })
-
-    let searchAgain = document.querySelector('#search-again')
-    searchAgain.classList.add('hidden')
-    searchAgain.addEventListener('click', () => {
-        location.reload()
     })
 
     form.addEventListener('submit', (event) => {
