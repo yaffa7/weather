@@ -141,7 +141,7 @@ h1.greeting {
 
 .main-display {
     border-bottom: var(--border-style);
-    padding: 30px;
+    padding: 0px 30px;
     font-family: var(--main-font);
 }
 
@@ -167,6 +167,36 @@ h1.greeting {
     font-size: 92px;
     font-weight: 800;
     margin-top: 20px;
+}
+
+.hourly-forecast-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.hour {
+    background: rgba(195, 195, 195,.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    font-size: 15px;
+    min-width: 20px;
+    color: rgb(195, 195, 195);
+    scale: .87;
+    transition: all ease-in-out 200ms;
+}
+
+.hour:hover {
+    scale: 1;
+    color: white;
+}
+
+.hour.current {
+    color: white;
+    scale: 1.0;
 }
 
 .detail-row {
