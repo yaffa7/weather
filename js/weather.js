@@ -11,6 +11,7 @@ window.onload = function () {
 
     SetBackground()
     AddSearchListener()
+    AddButtonListeners()
 
     function success(pos) {
         console.log('Got Coordinates', pos.coords)
@@ -39,6 +40,17 @@ function WeatherSearch(lat, lon) {
         })
         .catch(e => console.log(e))
     // stop spinner
+}
+
+function AddButtonListeners() {
+    document.querySelector('#btn1').addEventListener('click', function() {
+        document.querySelector('.sliding-panels').classList.remove('forecast')
+        document.querySelector('.sliding-panels').classList.add('detail')
+    })
+    document.querySelector('#btn2').addEventListener('click', function() {
+        document.querySelector('.sliding-panels').classList.remove('detail')
+        document.querySelector('.sliding-panels').classList.add('forecast')
+    })
 }
 
 function SetBackground(date) {
@@ -110,15 +122,48 @@ function SetUIWithData(data, location) {
     // Show Panel
     document.querySelector('.main-panel').classList.remove('hidden')
 
+    CreateHourlyWeather(data)
+    CreateDailyForecast(data)
+
+}
+
+function CreateDailyForecast(data) {
+    // Create daily weather
+    const hourComponent = (data) => {
+        var options = { weekday: 'long' };
+        var today = new Date(data.dt * 1000)
+
+        let dateString = Array.from(today.toLocaleDateString('en-US', options)).splice(0,3).join('')
+        return `
+            <div class="day">${dateString}</div>
+            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="40px">
+            <div>${data.weather[0].main}</div>
+            <div class="temp">${Math.floor(data.temp.day)}°</div>
+        `
+    }
+
+    // Remove previous elements
+    document.querySelector('#daily').innerHTML = ''
+
+    for (let day of data.daily) {
+        let elem = document.createElement('div')
+        elem.id = 'day'
+        elem.classList.add('daily-row')
+        elem.innerHTML = hourComponent(day)
+        document.querySelector('#daily').appendChild(elem)
+    }
+}
+
+function CreateHourlyWeather(data) {
     // Create hourly weather
     const hourComponent = (data) => {
         let date = new Date(data.dt * 1000)
         let parsedDate = to12Hour(date, true)
         return `
-                <div class="high">${Math.floor(data.temp)}°</div>
-                <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="40px">
-                <div class="low">${parsedDate}</div>
-        `
+            <div class="high">${Math.floor(data.temp)}°</div>
+            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="40px">
+            <div class="low">${parsedDate}</div>
+    `
     }
 
     // Remove previous elements
@@ -129,7 +174,10 @@ function SetUIWithData(data, location) {
         elem.id = 'hour'
         elem.classList.add('hour')
         elem.innerHTML = hourComponent(data.hourly[i])
-        if (i == 0) { elem.classList.add('current') }
+        if (i == 0) {
+            elem.classList.add('current')
+            elem.querySelector('.low').textContent = 'Now'
+        }
         document.querySelector('#hourly').appendChild(elem)
     }
 }
@@ -149,9 +197,9 @@ function AddSearchListener() {
         fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${input.value}&limit=1&appid=${APPID}&units=imperial`)
             .then(response => response.json())
             .then(data => WeatherSearch(data[0].lat, data[0].lon, input.value))
-        .catch(e => { 
-            showErrorMessage('City Not Found')
-        })
+            .catch(e => {
+                showErrorMessage('City Not Found')
+            })
     })
 }
 
@@ -187,6 +235,6 @@ function LocationFromCoords(lat, lon) {
 }
 
 function showErrorMessage(error) {
-        document.querySelector('#error').classList.remove('hidden')
-        document.querySelector('#error').textContent = error
+    document.querySelector('#error').classList.remove('hidden')
+    document.querySelector('#error').textContent = error
 }
