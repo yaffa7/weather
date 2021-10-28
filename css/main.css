@@ -110,7 +110,6 @@ h1.greeting {
 }
 
 .main-panel {
-    width: 35em;
     margin: auto;
     color:white;
     border-radius: 35px;
@@ -125,7 +124,7 @@ h1.greeting {
 
 .main-display {
     border-bottom: var(--border-style);
-    padding: 0px 30px;
+    padding: 10px 30px;
     font-family: var(--main-font);
 }
 
@@ -194,7 +193,6 @@ h1.greeting {
     font-family: var(--main-font);
     border-bottom: var(--border-style);
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 5px 10px;
 }
@@ -262,4 +260,16 @@ h1.greeting {
 
 .detail-container {
     width: 50%;
+}
+
+button.select {
+    border-radius: 2em;
+    padding: 10px;
+    border: var(--border-style);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+button.select:hover {
+    background-color: rgba(255,255,255,.4);
 }

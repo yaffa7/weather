@@ -43,11 +43,11 @@ function WeatherSearch(lat, lon) {
 }
 
 function AddButtonListeners() {
-    document.querySelector('#btn1').addEventListener('click', function() {
+    document.querySelector('#details-btn').addEventListener('click', function() {
         document.querySelector('.sliding-panels').classList.remove('forecast')
         document.querySelector('.sliding-panels').classList.add('detail')
     })
-    document.querySelector('#btn2').addEventListener('click', function() {
+    document.querySelector('#forecast-btn').addEventListener('click', function() {
         document.querySelector('.sliding-panels').classList.remove('detail')
         document.querySelector('.sliding-panels').classList.add('forecast')
     })
