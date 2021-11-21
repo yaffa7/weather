@@ -2,6 +2,7 @@
 // https://plotly.com/javascript/line-charts/
 // https://www.chartjs.org/docs/latest/samples/line/line.html
 
+
 const APPID = '4b82b3b40e9f7a693087eab5ee7b5044'
 
 
@@ -36,10 +37,14 @@ function WeatherSearch(lat, lon) {
         .then(location => {
             fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${APPID}&units=imperial`)
                 .then(response => response.json())
-                .then(data => { SetUIWithData(data, location) })
+                .then(data => {
+                    SetUIWithData(data, location) 
+                    LoadGraph(data.hourly)
+                })
         })
         .catch(e => console.log(e))
     // stop spinner
+
 }
 
 function AddButtonListeners() {
@@ -148,8 +153,8 @@ function CreateDailyForecast(data) {
             <div class="day">${dateString} ${today.getDate()}</div>
             <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="80px">
             <div>${data.weather[0].main}</div>
-            <div class="temp">${Math.floor(data.temp.min)}°</div>
-            <div class="temp">${Math.floor(data.temp.max)}°</div>
+            <div class="temp">L: ${Math.floor(data.temp.min)}°</div>
+            <div class="temp">H: ${Math.floor(data.temp.max)}°</div>
         `
     }
 
@@ -161,6 +166,9 @@ function CreateDailyForecast(data) {
         elem.id = 'day'
         elem.classList.add('daily-row')
         elem.innerHTML = hourComponent(day)
+        if (day == data.daily[0]) {
+            elem.querySelector('.day').innerHTML = 'Today'
+        }
         document.querySelector('#daily').appendChild(elem)
     }
 }
@@ -217,30 +225,6 @@ function AddSearchListener() {
 
 function hideErrorMessage() {
     document.querySelector('#error').classList.add('hidden')
-}
-
-function to12Hour(date, onlyHour = false) {
-    let hours = ''
-    let affix = ''
-    let minutes = date.getMinutes()
-    if (date.getHours() <= 12) {
-        hours = date.getHours()
-        affix = 'AM'
-    }
-    if (date.getHours() > 12) {
-        hours = date.getHours() % 12
-        affix = 'PM'
-    }
-
-    if (date.getMinutes() < 10) {
-        minutes = `0${date.getMinutes()}`
-    }
-
-    if (onlyHour) {
-        return `${hours} ${affix}`
-    } else {
-        return `${hours}:${minutes} ${affix}`
-    }
 }
 
 function LocationFromCoords(lat, lon) {

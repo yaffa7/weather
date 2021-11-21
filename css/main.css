@@ -194,7 +194,7 @@ h1.greeting {
     font-family: var(--main-font);
     display: flex;
     align-items: center;
-    padding: 5px 10px;
+    padding: 10px;
 }
 
 .daily-row:last-child {
@@ -204,7 +204,7 @@ h1.greeting {
 .daily-row .day {
     font-size: 28px;
     font-weight: 600;
-    width: 10%;
+    width: 15%;
 }
 
 .daily-row .temp {

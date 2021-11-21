@@ -7,13 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-    <script src="js/weather.js"></script>
-    <link href="fontawsome/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+
+    <link href="fontawsome/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mobile.css">
+    <script src="js/utils.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/weather.js"></script>
 </head>
 
 <body>
@@ -28,6 +32,10 @@
             </form>
             <div class="error-message" id='error'></div>
         </div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <button class="select">Tempurature</button>
+        <button class="select">Humidity</button>
+        <button class="select">UV Index</button>
     </div>
     <div class="main-panel">
         <div class="main-display">
