@@ -58,16 +58,20 @@ function SetBackground(date) {
     if (!date) {
         hours = new Date().getHours()
     }
+    console.log(hours)
     let greeting = ''
-    if (1 <= hours && hours < 12) {
+    if (0 <= hours && hours < 12) {
         greeting = 'Good Morning'
         document.querySelector('body').classList.add('morning')
     }
-    if (12 <= hours && hours < 18) {
+    else if (12 <= hours && hours < 18) {
         greeting = 'Good Afternoon'
         document.querySelector('body').classList.add('afternoon')
     }
-    if (18 <= hours && hours <= 24) {
+    else if (18 <= hours && hours <= 23) {
+        greeting = 'Good Evening'
+        document.querySelector('body').classList.add('evening')
+    } else {
         greeting = 'Good Evening'
         document.querySelector('body').classList.add('evening')
     }
@@ -119,6 +123,12 @@ function SetUIWithData(data, location) {
     // Humidity
     document.querySelector('#humidity').textContent = data.current.humidity + '%'
 
+    // UV Index
+    document.querySelector('#uv').textContent = data.current.uvi
+
+    // Clouds
+    document.querySelector('#clouds').textContent = data.current.clouds
+
     // Show Panel
     document.querySelector('.main-panel').classList.remove('hidden')
 
@@ -135,10 +145,11 @@ function CreateDailyForecast(data) {
 
         let dateString = Array.from(today.toLocaleDateString('en-US', options)).splice(0,3).join('')
         return `
-            <div class="day">${dateString}</div>
-            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="40px">
+            <div class="day">${dateString} ${today.getDate()}</div>
+            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="80px">
             <div>${data.weather[0].main}</div>
-            <div class="temp">${Math.floor(data.temp.day)}°</div>
+            <div class="temp">${Math.floor(data.temp.min)}°</div>
+            <div class="temp">${Math.floor(data.temp.max)}°</div>
         `
     }
 
@@ -187,7 +198,7 @@ function AddSearchListener() {
 
     let input = document.querySelector('#input')
     input.addEventListener('focus', (event) => {
-        document.querySelector('#error').classList.add('hidden')
+        hideErrorMessage()
     })
 
     form.addEventListener('submit', (event) => {
@@ -203,6 +214,10 @@ function AddSearchListener() {
     })
 }
 
+
+function hideErrorMessage() {
+    document.querySelector('#error').classList.add('hidden')
+}
 
 function to12Hour(date, onlyHour = false) {
     let hours = ''
