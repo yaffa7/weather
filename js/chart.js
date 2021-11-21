@@ -1,16 +1,18 @@
 function LoadGraph(weatherData) {
-    console.log('Loading graph with weather data')
     const ctx = document.getElementById('myChart').getContext('2d');
-    console.log(window.chart)
     if(window.chart == undefined) {
         CreateGraph(weatherData, ctx)
     } else {
-        UpdateGraph()
+        UpdateGraph(weatherData)
     }
 }
 
-function UpdateGraph() {
-
+function UpdateGraph(weatherData) {
+    let chartData = CreateChartData(weatherData);
+    for(let i = 0; i< window.chart.data.datasets.length;i++) {
+        window.chart.data.datasets[i].data = chartData.datasets[i]
+    }
+    window.chart.update()
 }
 
 function CreateGraph(weatherData, ctx) {
@@ -19,33 +21,27 @@ function CreateGraph(weatherData, ctx) {
     Chart.defaults.color = 'rgb(255, 255, 255)';
     Chart.defaults.font.family = "'Nunito', sans-serif";
 
+    let chartData = CreateChartData(weatherData);
 
-    const MAX_HOURS = 24;
-    const labels = [];
-    const tempData = [];
-    const humidityData = [];
-    const uvData = [];
-
-    CreateLabelsAndData(MAX_HOURS, weatherData, labels, tempData, humidityData, uvData);
     const data = {
-        labels: labels,
+        labels: chartData.labels,
         datasets: [{
             label: 'Tempurature',
-            data: tempData,
+            data: chartData.datasets[0],
             fill: false,
             borderColor: 'rgb(255, 255, 255)',
             tension: 0.1
         },
         {
             label: 'Humidity',
-            data: humidityData,
+            data: chartData.datasets[1],
             fill: false,
             borderColor: 'rgb(122, 122, 122)',
             tension: 0.1
         },
         {
             label: 'UV Index',
-            data: uvData,
+            data: chartData.datasets[2],
             fill: false,
             borderColor: 'rgb(141, 0, 0)',
             tension: 0.1
@@ -75,14 +71,30 @@ function CreateGraph(weatherData, ctx) {
     window.chart = new Chart(ctx, config);
 }
 
-function CreateLabelsAndData(MAX_HOURS, weatherData, labels, tempData, humidityData, uvData) {
-    for (let i = 0; i <= MAX_HOURS; i++) {
+function CreateChartData(weatherData) {
+
+    const MAX_HOURS = 24;
+    const labels = [];
+    const tempData = [];
+    const humidityData = [];
+    const uvData = [];
+
+    for (let i = 0; i < MAX_HOURS; i++) {
         let d = weatherData[i];
         let date = new Date(d.dt * 1000);
         let parsedDate = to12Hour(date, true);
         labels.push(parsedDate);
         tempData.push(d.temp);
         humidityData.push(d.humidity);
-        uvData.push(d.uvi);
+        uvData.push(d.uvi * 10);
+    }
+
+    return {
+        datasets: [
+            tempData, 
+            humidityData, 
+            uvData,
+        ],
+        labels: labels
     }
 }
