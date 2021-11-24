@@ -50,11 +50,18 @@ function WeatherSearch(lat, lon) {
 function AddButtonListeners() {
     document.querySelector('#details-btn').addEventListener('click', function() {
         document.querySelector('.sliding-panels').classList.remove('forecast')
+        document.querySelector('.sliding-panels').classList.remove('graph')
         document.querySelector('.sliding-panels').classList.add('detail')
     })
     document.querySelector('#forecast-btn').addEventListener('click', function() {
         document.querySelector('.sliding-panels').classList.remove('detail')
+        document.querySelector('.sliding-panels').classList.remove('graph')
         document.querySelector('.sliding-panels').classList.add('forecast')
+    })
+    document.querySelector('#graph-btn').addEventListener('click', function() {
+        document.querySelector('.sliding-panels').classList.remove('detail')
+        document.querySelector('.sliding-panels').classList.remove('forecast')
+        document.querySelector('.sliding-panels').classList.add('graph')
     })
 }
 

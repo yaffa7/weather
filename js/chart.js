@@ -1,21 +1,23 @@
 function LoadGraph(weatherData) {
-    const ctx = document.getElementById('myChart').getContext('2d');
-    if(window.chart == undefined) {
-        CreateGraph(weatherData, ctx)
+    const ctx = document.getElementById('chart-desktop').getContext('2d');
+    const ctx2 = document.getElementById('chart-mobile').getContext('2d');
+    if(window.chart == undefined && window.chart2 == undefined) {
+        CreateGraph(weatherData, ctx, ctx2)
     } else {
-        UpdateGraph(weatherData)
+        UpdateGraph(weatherData, window.chart)
+        UpdateGraph(weatherData, window.chart2)
     }
 }
 
-function UpdateGraph(weatherData) {
+function UpdateGraph(weatherData, chart) {
     let chartData = CreateChartData(weatherData);
     for(let i = 0; i< window.chart.data.datasets.length;i++) {
         window.chart.data.datasets[i].data = chartData.datasets[i]
     }
-    window.chart.update()
+    chart.update()
 }
 
-function CreateGraph(weatherData, ctx) {
+function CreateGraph(weatherData, ctx, ctx2) {
     Chart.defaults.font.size = 16;
     Chart.defaults.borderColor = 'rgba(255, 255, 255,.2)';
     Chart.defaults.color = 'rgb(255, 255, 255)';
@@ -69,6 +71,8 @@ function CreateGraph(weatherData, ctx) {
     }
 
     window.chart = new Chart(ctx, config);
+    window.chart2 = new Chart(ctx2, config);
+
 }
 
 function CreateChartData(weatherData) {

@@ -32,10 +32,9 @@
             </form>
             <div class="error-message" id='error'></div>
         </div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-        <button class="select">Tempurature</button>
-        <button class="select">Humidity</button>
-        <button class="select">UV Index</button>
+        <div class="chart-desktop-container">
+            <canvas id="chart-desktop" width="400" height="400"></canvas>
+        </div>
     </div>
     <div class="main-panel">
         <div class="main-display">
@@ -46,6 +45,7 @@
             <div class="hourly-forecast-container" id='hourly'></div>
             <button class="select" id="details-btn">Details</button>
             <button class="select" id="forecast-btn">7-Day Forecast</button>
+            <button class="select graph-btn" id="graph-btn">Graph</button>
         </div>
         <div class="sliding-panels">
             <div class="detail-container">
@@ -134,6 +134,9 @@
                 </div>
             </div>
             <div class="daily-container" id="daily"></div>
+            <div class="chart-mobile-container">
+                <canvas id="chart-mobile"></canvas>
+            </div>
         </div>
 </body>
 

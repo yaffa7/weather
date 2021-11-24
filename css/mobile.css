@@ -9,4 +9,42 @@ and (orientation: portrait) {
     h1.greeting {
         font-size: 3rem;
     }
+
+    .sliding-panels {
+        width: 300%;
+    }
+    
+    .sliding-panels.detail {
+        margin-left : 0%;
+    }
+    
+    .sliding-panels.forecast {
+        margin-left: -100%;
+    }
+    
+    .sliding-panels.graph {
+        margin-left: -200%;
+    }
+    .detail-container {
+        width: 33.33%;
+    }
+    
+    .daily-container {
+        width: 33.33%;
+    }
+    
+    .graph-btn {
+        display: inline;
+    }
+
+    .chart-desktop-container {
+        display: none;
+    }
+
+    .chart-mobile-container {
+        margin-top: 15px;
+        display: inline;
+        width: 33.33%;
+        height: 100%;
+    }
 }
