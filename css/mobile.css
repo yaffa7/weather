@@ -42,9 +42,23 @@ and (orientation: portrait) {
     }
 
     .chart-mobile-container {
-        margin-top: 15px;
         display: inline;
         width: 33.33%;
-        height: 100%;
+    }
+
+    .hour {
+        padding: 5px;
+    }
+
+    .daily-row {
+        padding: 5px;
+    }
+
+    .daily-row .day {
+        font-size: 23px;
+    }
+
+    .daily-row .temp {
+        font-size: 26px;
     }
 }

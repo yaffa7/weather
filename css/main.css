@@ -254,6 +254,7 @@ h1.greeting {
     display: flex;
     transition: margin 500ms;
     margin-left : 0%;
+    max-height: 21em;
 }
 
 .sliding-panels.detail {
@@ -273,7 +274,6 @@ h1.greeting {
     display: flex;
     flex-direction: column;
     overflow: scroll;
-    max-height: 21em;
 }
 
 .chart-mobile-container {
@@ -292,7 +292,7 @@ button.select {
     border-radius: 2em;
     padding: 10px;
     border: var(--border-style);
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
 }
 
