@@ -117,6 +117,7 @@ h1.greeting {
     border: var(--border-style);
     overflow: hidden;
     max-width: 35em;
+    margin-bottom: 3em;
 }
 
 .main-panel.hidden {
