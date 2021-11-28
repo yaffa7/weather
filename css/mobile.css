@@ -3,9 +3,11 @@ and (orientation: portrait) {
     body {
         padding: 0px;
     }
+
     input {
         font-size: 20px;
     }
+
     h1.greeting {
         font-size: 3rem;
     }
@@ -14,12 +16,12 @@ and (orientation: portrait) {
         width: 300%;
     }
     
-    .sliding-panels.detail {
-        margin-left : 0%;
+    .sliding-panels.forecast {
+        margin-left: 0%;
     }
     
-    .sliding-panels.forecast {
-        margin-left: -100%;
+    .sliding-panels.detail {
+        margin-left : -100%;
     }
     
     .sliding-panels.graph {
@@ -33,17 +35,17 @@ and (orientation: portrait) {
         width: 33.33%;
     }
     
+    .chart-mobile-container {
+        display: inline;
+        width: 33.33%;
+    }
+
     .graph-btn {
         display: inline;
     }
 
     .chart-desktop-container {
         display: none;
-    }
-
-    .chart-mobile-container {
-        display: inline;
-        width: 33.33%;
     }
 
     .hour {

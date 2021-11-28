@@ -43,11 +43,13 @@
             <div class="current-day-text" id="current-date"></div>
             <div class="current-temp-text" id="current-temp"></div>
             <div class="hourly-forecast-container" id='hourly'></div>
-            <button class="select" id="details-btn">Details</button>
             <button class="select" id="forecast-btn">7-Day Forecast</button>
+            <button class="select" id="details-btn">Details</button>
             <button class="select graph-btn" id="graph-btn">Graph</button>
         </div>
         <div class="sliding-panels">
+            <div class="daily-container" id="daily">
+            </div>
             <div class="detail-container">
                 <div class="detail-row">
                     <div class="detail left">
@@ -133,9 +135,8 @@
                     </div>
                 </div>
             </div>
-            <div class="daily-container" id="daily"></div>
             <div class="chart-mobile-container">
-                <canvas id="chart-mobile" height="280   px"></canvas>
+                <canvas id="chart-mobile" style="width:100%;height:100%;"></canvas>
             </div>
         </div>
 </body>

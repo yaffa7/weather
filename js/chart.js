@@ -52,8 +52,10 @@ function CreateGraph(weatherData, desktop, mobile) {
 
     const config = {
         type: 'line',
+        maintainAspectRatio: false,
         data: data,
         options: {
+            responsive: true,
             plugins: {
                 legend: {
                     color: 'white',

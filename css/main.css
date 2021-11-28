@@ -259,11 +259,11 @@ h1.greeting {
 }
 
 .sliding-panels.detail {
-    margin-left : 0%;
+    margin-left : -100%;
 }
 
 .sliding-panels.forecast {
-    margin-left: -100%;
+    margin-left: 0%;
 }
 
 .detail-container {
@@ -300,3 +300,7 @@ button.select {
 button.select:hover {
     background-color: rgba(255,255,255,.4);
 }
+
+/* canvas#chart-desktop {
+
+} */
