@@ -121,7 +121,7 @@ h1.greeting {
 }
 
 .main-panel.hidden {
-    visibility: hidden;
+    display: none;
 }
 
 .main-display {
@@ -301,6 +301,30 @@ button.select:hover {
     background-color: rgba(255,255,255,.4);
 }
 
-/* canvas#chart-desktop {
+div.loader {
+   position: absolute;
+   top: 55%;
+   left: 47%;
+}
 
-} */
+div.loader i#loader-sun {
+    scale: 1;
+    position: absolute;
+    color: yellow;
+    animation: sun-spin  linear 2000ms infinite;
+}
+
+div.loader i#loader-clouds {
+    scale:1;
+    position: absolute;
+    color: white;
+    animation: clouds-lower  linear 2000ms infinite;
+}
+
+.loader.show {
+    display: inline;
+}
+
+.loader.hide {
+    display: none;
+}

@@ -1,8 +1,17 @@
-@keyframes loader-spin {
+@keyframes sun-spin {
     from {
-      transform: rotate(0deg);
+      transform: rotate(0deg) scale(1);
     }
     to {
-      transform: rotate(360deg);
+      transform: rotate(120deg) scale(1.1);
+    }
+  }
+
+  @keyframes clouds-lower {
+    from {
+      transform: translateX(0px);
+    }
+    to {
+      transform: translateX(30px);
     }
   }

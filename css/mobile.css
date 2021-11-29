@@ -61,6 +61,11 @@ and (orientation: portrait) {
     }
 
     .daily-row .temp {
-        font-size: 26px;
+        font-size: 25px;
     }
+
+    div.loader {
+        top: 70%;
+        left: 40%;
+     }
 }

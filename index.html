@@ -15,6 +15,7 @@
     <link href="fontawsome/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/animations.css">
     <script src="js/utils.js"></script>
     <script src="js/chart.js"></script>
     <script src="js/weather.js"></script>
@@ -31,6 +32,10 @@
                 <button type="submit"><i class="fas fa-search fa-3x"></i></button>
             </form>
             <div class="error-message" id='error'></div>
+        </div>
+        <div class="loader">
+            <i class="fas fa-sun fa-3x" id="loader-sun"></i>
+            <i class="fas fa-cloud fa-3x" id="loader-clouds"></i>
         </div>
         <div class="chart-desktop-container">
             <canvas id="chart-desktop" width="400" height="400"></canvas>

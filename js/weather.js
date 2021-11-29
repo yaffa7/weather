@@ -33,11 +33,13 @@ window.onload = function () {
 function WeatherSearch(lat, lon) {
     // start spinner
     // Call open weather with lat/long
+    showLoader()
     LocationFromCoords(lat, lon)
         .then(location => {
             fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${APPID}&units=imperial`)
                 .then(response => response.json())
                 .then(data => {
+                    hideLoader()
                     SetUIWithData(data, location) 
                     LoadGraph(data.hourly)
                 })
@@ -45,6 +47,18 @@ function WeatherSearch(lat, lon) {
         .catch(e => console.log(e))
     // stop spinner
 
+}
+
+function hideLoader() {
+    let loader = document.querySelector('div.loader')
+    loader.classList.remove('show')
+    loader.classList.add('hide')
+}
+
+function showLoader() {
+    let loader = document.querySelector('div.loader')
+    loader.classList.remove('hide')
+    loader.classList.add('show')
 }
 
 function AddButtonListeners() {
@@ -146,7 +160,6 @@ function SetUIWithData(data, location) {
 
     CreateHourlyWeather(data)
     CreateDailyForecast(data)
-
 }
 
 function CreateDailyForecast(data) {
