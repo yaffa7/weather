@@ -40,7 +40,7 @@ function WeatherSearch(lat, lon) {
                 .then(response => response.json())
                 .then(data => {
                     hideLoader()
-                    SetUIWithData(data, location) 
+                    SetUIWithData(data, location)
                     LoadGraph(data.hourly)
                 })
         })
@@ -56,23 +56,26 @@ function hideLoader() {
 }
 
 function showLoader() {
-    let loader = document.querySelector('div.loader')
-    loader.classList.remove('hide')
-    loader.classList.add('show')
+    if (window.loaded == undefined) {
+        window.loaded = true
+        let loader = document.querySelector('div.loader')
+        loader.classList.remove('hide')
+        loader.classList.add('show')
+    }
 }
 
 function AddButtonListeners() {
-    document.querySelector('#details-btn').addEventListener('click', function() {
+    document.querySelector('#details-btn').addEventListener('click', function () {
         document.querySelector('.sliding-panels').classList.remove('forecast')
         document.querySelector('.sliding-panels').classList.remove('graph')
         document.querySelector('.sliding-panels').classList.add('detail')
     })
-    document.querySelector('#forecast-btn').addEventListener('click', function() {
+    document.querySelector('#forecast-btn').addEventListener('click', function () {
         document.querySelector('.sliding-panels').classList.remove('detail')
         document.querySelector('.sliding-panels').classList.remove('graph')
         document.querySelector('.sliding-panels').classList.add('forecast')
     })
-    document.querySelector('#graph-btn').addEventListener('click', function() {
+    document.querySelector('#graph-btn').addEventListener('click', function () {
         document.querySelector('.sliding-panels').classList.remove('detail')
         document.querySelector('.sliding-panels').classList.remove('forecast')
         document.querySelector('.sliding-panels').classList.add('graph')
@@ -168,7 +171,7 @@ function CreateDailyForecast(data) {
         var options = { weekday: 'long' };
         var today = new Date(data.dt * 1000)
 
-        let dateString = Array.from(today.toLocaleDateString('en-US', options)).splice(0,3).join('')
+        let dateString = Array.from(today.toLocaleDateString('en-US', options)).splice(0, 3).join('')
         return `
             <div class="day">${dateString} ${today.getDate()}</div>
             <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="small weather icon" width="80px">
