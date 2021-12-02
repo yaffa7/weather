@@ -118,6 +118,7 @@ h1.greeting {
     overflow: hidden;
     max-width: 35em;
     margin-bottom: 3em;
+    animation: fade-in 500ms linear;
 }
 
 .main-panel.hidden {
@@ -318,7 +319,7 @@ div.loader i#loader-clouds {
     scale:1;
     position: absolute;
     color: white;
-    animation: clouds-lower  linear 2000ms infinite;
+    animation: clouds-move  linear 2000ms infinite;
 }
 
 .loader.show {

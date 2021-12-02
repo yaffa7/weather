@@ -1,2 +1,3 @@
-- add loading spinner
 - fix time bug
+- add button select state of desktop
+- add favicon
