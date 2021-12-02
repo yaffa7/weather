@@ -12,6 +12,11 @@ and (orientation: portrait) {
         font-size: 3rem;
     }
 
+    .main-panel {
+        border: none;
+        border-bottom: var(--border-style);
+        border-radius: 0px;
+    }
     .sliding-panels {
         width: 300%;
     }
