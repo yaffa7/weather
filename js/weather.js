@@ -30,9 +30,7 @@ window.onload = function () {
     navigator.geolocation.getCurrentPosition(success, error)
 }
 
-function WeatherSearch(lat, lon) {
-    // start spinner
-    // Call open weather with lat/long
+function WeatherSearch(lat, lon, country) {
     showLoader()
     LocationFromCoords(lat, lon)
         .then(location => {
@@ -40,13 +38,11 @@ function WeatherSearch(lat, lon) {
                 .then(response => response.json())
                 .then(data => {
                     hideLoader()
-                    SetUIWithData(data, location)
+                    SetUIWithData(data, location, country)
                     LoadGraph(data.hourly)
                 })
         })
-        .catch(e => console.log(e))
-    // stop spinner
-
+    .catch(e => console.log(e))
 }
 
 function hideLoader() {
@@ -116,14 +112,15 @@ function SetBackground(date) {
     document.querySelector('#current-date').textContent = dateString
 }
 
-function SetUIWithData(data, location) {
+function SetUIWithData(data, location, country) {
     console.log(data, data.current)
     // Set Image
     let imageHTML = `<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png" alt="weather icon">`
     document.querySelector('#image-container').innerHTML = imageHTML
 
     // Set location
-    let locationInnerHTML = `<strong id="location">${location}</strong>, US`
+    let countryDisplay = country == undefined ? 'US' : country
+    let locationInnerHTML = `<strong id="location">${location}</strong>, ${countryDisplay}`
     document.querySelector('#location').innerHTML = locationInnerHTML
 
     // Set weather condition
@@ -238,7 +235,7 @@ function AddSearchListener() {
 
         fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${input.value}&limit=1&appid=${APPID}&units=imperial`)
             .then(response => response.json())
-            .then(data => WeatherSearch(data[0].lat, data[0].lon, input.value))
+            .then(data => WeatherSearch(data[0].lat, data[0].lon, data[0].country))
             .catch(e => {
                 showErrorMessage('City Not Found')
             })
