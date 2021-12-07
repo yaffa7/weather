@@ -302,6 +302,10 @@ button.select:hover {
     background-color: rgba(255,255,255,.4);
 }
 
+button.active {
+    background-color: rgba(255,255,255,.4);
+}
+
 div.loader {
    position: absolute;
    top: 55%;

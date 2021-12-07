@@ -62,16 +62,28 @@ function showLoader() {
 
 function AddButtonListeners() {
     document.querySelector('#details-btn').addEventListener('click', function () {
+        document.querySelector('#details-btn').classList.add('active')
+        document.querySelector('#forecast-btn').classList.remove('active')
+        document.querySelector('#graph-btn').classList.remove('active')
+
         document.querySelector('.sliding-panels').classList.remove('forecast')
         document.querySelector('.sliding-panels').classList.remove('graph')
         document.querySelector('.sliding-panels').classList.add('detail')
     })
     document.querySelector('#forecast-btn').addEventListener('click', function () {
+        document.querySelector('#forecast-btn').classList.add('active')
+        document.querySelector('#details-btn').classList.remove('active')
+        document.querySelector('#graph-btn').classList.remove('active')
+
         document.querySelector('.sliding-panels').classList.remove('detail')
         document.querySelector('.sliding-panels').classList.remove('graph')
         document.querySelector('.sliding-panels').classList.add('forecast')
     })
     document.querySelector('#graph-btn').addEventListener('click', function () {
+        document.querySelector('#graph-btn').classList.add('active')
+        document.querySelector('#forecast-btn').classList.remove('active')
+        document.querySelector('#details-btn').classList.remove('active')
+
         document.querySelector('.sliding-panels').classList.remove('detail')
         document.querySelector('.sliding-panels').classList.remove('forecast')
         document.querySelector('.sliding-panels').classList.add('graph')
