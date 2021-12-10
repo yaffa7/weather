@@ -137,6 +137,7 @@ function SetUIWithData(data, location, country) {
 
     // Set weather condition
     document.querySelector('#condition-text').textContent = data.current.weather[0].description
+    document.querySelector('title').textContent = `${location}, ${countryDisplay} - ` + Math.floor(data.current.temp) + '°'
 
     // Set Current tempurature
     document.querySelector('#current-temp').textContent = Math.floor(data.current.temp) + '°'

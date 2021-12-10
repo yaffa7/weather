@@ -1,2 +1,1 @@
-- add button select state of desktop
 - add favicon
